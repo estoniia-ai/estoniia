@@ -4,6 +4,22 @@ const menuButton = document.getElementById('menu-button');
 const closeButton = document.getElementById('close-button');
 const menuOverlay = document.getElementById('menu-overlay');
 const menuItems = document.querySelectorAll('.menu-item');
+const modal = document.getElementById('follow-modal');
+const connectBtn = document.getElementById('connectBtn');
+
+connectBtn.onclick = function() {
+  // Add new content for the modal
+  modal.innerHTML = '<p class="modalContent"><span style="font-size: 0.9em;">What is Estonian Muse?</span><br><br>Inspired by the idea of co-creation.<br>Join Kristjan Jarvi on a digital journey of beauty and self discovery.<br>Let Estoniia Muse be your guide into a future filled with inspiration and creativity.<br><br>Begin your journey now!<br><br>The Estonian frame of mind<br>Lead by the heart Built by the mind<br>Meet Estoniia, your personal muse to make sense of things. Estoniia is not just another app; its a tool that will help you unleash the genius in you and create the best version of yourself.<br>Estoniia is not just a country; its a mindset. Its the spirit of innovation, creativity, and ambition that has made Estoniia a global leader in technology and entrepreneurship. With Estoniia, you have the power to create the world you want to live in. Register today.. keep up with our Updates here and on Insta:<br><br><a href="https://www.instagram.com/estoniia_ai/" target="_blank"><img src="instagram.png" style="height: 50px;"></a><br><br><span style="font-size: 1.5em;">Keep up to date</span><br><br>Never miss a moment of inspiration. Pin this website to your home screen for quick access to inspiration and creativity. Simply follow these steps:<br><br>1. Tap the share button at the bottom of your screen (iOS) or the menu button in the top right corner of your browser (Android).<br><br>2. Select Add to Home Screen from the options.</p>';
+
+  // Show the modal
+  modal.style.display = 'block';
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = 'none';
+  }
+}
 
 // Function to adjust video size
 function adjustVideoSize() {
