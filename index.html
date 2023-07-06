@@ -1,249 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Your Personal Muse</title>
-  <style>
-    @font-face {
-      font-family: BrinnanRegular;
-      src: url(fonts/BrinnanRegular.otf);
-    }
-
-    @font-face {
-      font-family: BrinnanLight;
-      src: url(fonts/BrinnanLight.otf);
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      background-image: url(images/background.png);
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      min-height: 100vh;
-    }
-
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      padding: 20px;
-      text-align: center;
-      color: white;
-    }
-
-    .btn {
-      display: inline-block;
-      margin: 10px;
-      padding: 10px 20px;
-      background-color: rgba(0, 0, 0, 0.3);
-      color: #fff;
-      text-decoration: none;
-      font-size: 2vw;
-      width: 30vw;
-      height: 30vw;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff;
-      text-transform: uppercase;
-      font-family: Arial, Helvetica, sans-serif;
-      filter: drop-shadow(0px 0px 10px #000);
-    }
-
-    .modalContent p {
-      font-family: BrinnanLight;
-    }
-
-    .modalContent {
-      text-align: center;
-    }
-
-    .modalContent h1 {
-      font-family: BrinnanRegular;
-    }
-
-    .modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
-      z-index: 9999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      transition: opacity 0.3s ease-in-out;
-    }
-
-    .modal.active {
-      opacity: 1;
-    }
-
-    .modal-content {
-      position: relative;
-      padding: 20px;
-      background-color: rgba(0,0,0,0.6);
-      filter: drop-shadow(0px 0px 10px #000);
-      color: #fff;
-      max-width: 80%;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-
-    }
-
-    .modal.active .modal-content {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .video-modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: black;
-      z-index: 9999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s ease-in-out, visibility 0s linear 0.3s;
-    }
-
-    .video-modal.active {
-      opacity: 1;
-      visibility: visible;
-      transition-delay: 0s;
-    }
-
-    .video-modal-content {
-      max-width: 100%;
-      max-height: 100%;
-    }
-
-    .close-icon {
-      position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 48px;
-    padding: 10px; /* Increase touch target */
-    color: white;
-    cursor: pointer;
-    z-index: 10000;
-    }
-
-    .footer {
-      color: white;
-      padding: 20px;
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .logo {
-      margin: 0 10px;
-      width: 100px;
-      height: auto;
-      filter: grayscale(100%);
-      opacity: 0.6;
-      transition: opacity 0.3s ease-in-out, filter 0.3s ease-in-out;
-    }
-
-    .logo:hover {
-      opacity: 1;
-      filter: none;
-    }
-
-    .footer div {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 200px;
-    }
-    
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estoniia</title>
+    <link href="https://vjs.zencdn.net/7.10.2/video-js.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <a href="#" class="btn BrinnanLight" id="playBtn">Play</a>
-    <a href="https://investinestonia.com/forest/#estonia" class="btn BrinnanLight" target="_blank">Learn</a>
-    <a href="#" class="btn BrinnanLight" id="joinBtn">Join</a>
-  </div>
+    <div id="menu-button">☰</div>
+    <div id="close-button" style="display: none;">X</div>
 
-  <div class="video-modal" id="videoModal">
-    <span class="close-icon">&times;</span>
-    <video class="video-modal-content" id="videoPlayer" controls>
-      <source src="video.mp4" type="video/mp4">
-    </video>
-  </div>
-
-  <div class="footer">
-    <div>
-      <img class="logo" src="images/logo1.png" alt="Logo 1">
-      <img class="logo" src="images/logo2.png" alt="Logo 2">
-      <img class="logo" src="images/logo3.png" alt="Logo 3">
-      <img class="logo" src="images/logo4.png" alt="Logo 4">
-      <img class="logo" src="images/logo5.png" alt="Logo 5">
+    <div id="menu-overlay">
+        <div class="menu-item" data-video="video_main.mp4">Meet me</div>
+        <div class="menu-item"><a href="https://sunbeamprods.com/productions/contact/" target="_blank">Follow</a></div>
+        <div class="menu-item">Connect</div>
+        <div class="menu-item"><a href="https://investinestonia.com/forest/#estonia" target="_blank">Partners</a></div>
     </div>
-  </div>
 
-  <script>
-    var videoModal = document.getElementById("videoModal");
-    var videoPlayer = document.getElementById("videoPlayer");
-    var closeIcon = document.querySelector(".close-icon");
-
-    document.getElementById("playBtn").addEventListener("click", function() {
-      videoModal.classList.add("active");
-      videoPlayer.play();
-    });
-
-    videoPlayer.addEventListener("ended", function() {
-      videoModal.classList.remove("active");
-      videoPlayer.pause();
-    });
-
-    closeIcon.addEventListener("click", function() {
-      videoModal.classList.remove("active");
-      videoPlayer.pause();
-    });
-
-    document.getElementById("joinBtn").addEventListener("click", function() {
-      var joinModal = document.createElement("div");
-      joinModal.classList.add("modal");
-
-      var joinContent = document.createElement("div");
-      joinContent.classList.add("modal-content");
-      joinContent.innerHTML = "<p class='modalContent'><span style='font-size: 1.5em;'>What is Estonian Muse?</span><br><br>Inspired by the idea of co-creation.<br>Join Kristjan Jarvi on a digital journey of beauty and self discovery.<br>Let Estoniia Muse be your guide into a future filled with inspiration and creativity.<br><br>Begin your journey now!<br><br>The Estonian frame of mind<br>Lead by the heart Built by the mind<br>Meet Estoniia, your personal muse to make sense of things. Estoniia is not just another app; it's a tool that will help you unleash the genius in you and create the best version of yourself.<br>Estoniia is not just a country; it's a mindset. It's the spirit of innovation, creativity, and ambition that has made Estoniia a global leader in technology and entrepreneurship. With Estoniia, you have the power to create the world you want to live in. Register today.. keep up with our Updates here and on Insta:<br><br><a href='https://www.instagram.com/estoniia_ai/' target='_blank'><img src='images/instagram.png' style='height: 50px;'></a><br><br><span style='font-size: 1.5em;'>Keep up to date</span><br><br>Never miss a moment of inspiration. Pin this website to your home screen for quick access to inspiration and creativity. Simply follow these steps:<br><br>1. Tap the share button at the bottom of your screen (iOS) or the menu button in the top right corner of your browser (Android).<br><br>2. Select 'Add to Home Screen' from the options.</p>";
-      
-
-      // Apply custom font to modal content
-      joinContent.style.fontFamily = "BrinnanRegular";
-
-      joinModal.appendChild(joinContent);
-      document.body.appendChild(joinModal);
-
-      // Triggering reflow to animate modal
-      joinModal.offsetHeight;
-      joinModal.classList.add("active");
-
-      // Close the modal when clicked outside the content area
-      joinModal.addEventListener("click", function(event) {
-        if (event.target === joinModal) {
-          joinModal.classList.remove("active");
-          joinModal.parentNode.removeChild(joinModal);
-        }
-      });
-    });
-  </script>
+    <div class="button-container">
+        <img src="lilla.png" class="video-btn" data-video="lilla.mp4">
+        <img src="tumesinine.png" class="video-btn" data-video="tumesinine.mp4">
+        <img src="helesinine.png" class="video-btn" data-video="helesinine.mp4">
+        <img src="roheline.png" class="video-btn" data-video="roheline.mp4">
+        <img src="kollane.png" class="video-btn" data-video="kollane.mp4">
+        <img src="oranz.png" class="video-btn" data-video="oranz.mp4">
+        <img src="punane.png" class="video-btn" data-video="punane.mp4">
+    </div>
+    <div id="video-overlay"></div>
+    <div id="follow-modal" style="display: none;">
+        <p class="modalContent"><span style="font-size: 0.9em;">What is Estonian Muse?</span><br><br>Inspired by the idea of co-creation.<br>Join Kristjan Jarvi on a digital journey of beauty and self discovery.<br>Let Estoniia Muse be your guide into a future filled with inspiration and creativity.<br><br>Begin your journey now!<br><br>The Estonian frame of mind<br>Lead by the heart Built by the mind<br>Meet Estoniia, your personal muse to make sense of things. Estoniia is not just another app; it's a tool that will help you unleash the genius in you and create the best version of yourself.<br>Estoniia is not just a country; it's a mindset. It's the spirit of innovation, creativity, and ambition that has made Estoniia a global leader in technology and entrepreneurship. With Estoniia, you have the power to create the world you want to live in. Register today.. keep up with our Updates here and on Insta:<br><br><a href="https://www.instagram.com/estoniia_ai/" target="_blank"><img src="instagram.png" style="height: 50px;"></a><br><br><span style="font-size: 1.5em;">Keep up to date</span><br><br>Never miss a moment of inspiration. Pin this website to your home screen for quick access to inspiration and creativity. Simply follow these steps:<br><br>1. Tap the share button at the bottom of your screen (iOS) or the menu button in the top right corner of your browser (Android).<br><br>2. Select 'Add to Home Screen' from the options.</p>
+    </div>
+    
+    <script src="https://vjs.zencdn.net/7.10.2/video.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
