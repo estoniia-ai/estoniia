@@ -138,3 +138,5 @@ closeButton.addEventListener('click', () => {
         menuOverlay.style.animation = '';
     }, 1000);
 });
+
+// UPD2
